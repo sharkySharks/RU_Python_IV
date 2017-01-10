@@ -23,3 +23,31 @@ LAB subprocess Learning Objective: Familiarization with subprocess
     (as strings) on the arg list, then runs them sequentially printing stdout.
 
 """
+import subprocess
+
+print("a.")
+subprocess.run(['ls', '-l'])
+
+print("b.")
+subprocess.Popen(['ls', '-l'], stdout=None)
+
+print("c. -- errors output")
+try:
+    subprocess.Popen(['/bogus/command'], stdout=subprocess.PIPE)
+except OSError as e:
+    print(e)
+
+print("d.")
+with subprocess.Popen(['du', '-h'], stdout=subprocess.PIPE) as proc:
+    print(proc.stdout.read())
+
+print("e.")
+def commander(args):
+    for arg in args:
+        p = subprocess.run(arg, shell=True)
+        print('Output for command: {} \n{}'.format(arg, p.stdout))
+
+commander(['ls -l', 'who', 'whoami'])
+
+
+

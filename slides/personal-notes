@@ -1,0 +1,24 @@
+"""
+PYTHON IV
+(slide notes available in repository)
+
+tuples --> lists that do not change (immutable)
+
+lists --> tuples that do change (mutable)
+
+range(5) --> 0,1,2,3,4
+
+dictionary --> key/value mapping
+    *
+
+set --> uses {} but does not have key/value pairs, can iterate but not slice
+
+yield statements
+    * a function with a yield statement is a generator
+    * it suspends the execution of the call function instead of ending the function
+        * call next(x) on your generator and it will return the next value in execution
+
+with statements
+
+
+"""

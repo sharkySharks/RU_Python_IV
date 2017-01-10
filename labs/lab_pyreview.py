@@ -26,3 +26,40 @@ e. Create a function called wordcount() with a yield that takes the list of
    (letter, number_of_words_starting_with_that_letter) with each iteration.
 
 """
+import random
+import string
+
+print("a.")
+all_text_1 = [line.strip() for line in open('../data/dictionary1.txt', "r")]
+print(('# of lines in first: {}'.format(len(all_text_1))))
+
+all_text_2 = [line.strip() for line in open('../data/dictionary2.txt', "r")]
+print(('# of lines in second: {}'.format(len(all_text_2))))
+
+print("b.")
+combined = set(all_text_1).union(set(all_text_2))
+print(len(combined))
+
+print("c.")
+print(random.sample(combined, 5))
+
+print("d.")
+a_count = 0
+for word in combined:
+    if word[0] == "a" or word[0] == "A":
+        a_count+=1
+print(a_count)
+
+print("d. - alternative")
+awords = [w for w in combined if w.startswith('a')]; # filter with list comprehension
+print(len(awords));
+
+print("e.")
+
+def wordcount(wordlist):
+    for letter in string.ascii_lowercase:
+        words = [w for w in wordlist if w.startswith(letter)]
+        yield (letter, len(words))
+
+for wc in wordcount(combined):
+    print(("# of words with {}: {}".format(wc[0], wc[1])))

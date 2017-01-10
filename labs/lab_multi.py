@@ -59,6 +59,7 @@ def generate_work(num_items):
     return [random.randint(1, 2000) for x in range(num_items)]
 
 # Add your code down here
+print("a.")
 
 
 def worker():
