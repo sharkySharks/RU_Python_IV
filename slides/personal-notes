@@ -23,7 +23,13 @@ with statements
 
 Q: how does inheritance work in Python?
 Q: how to debug effectively in Python, are there break points?
+    - pdb (module) - modeled after gdb, pycharm (ide, in ipython)
+    - import logging library for debugging statements
+    - debug decorator
 Q: server side code, what is best practice for file structure?
     - how are css, html, etc handled?
+    - PEP8, pyflake - style guides for code organization
+
+- cloud9 ide
 
 """
