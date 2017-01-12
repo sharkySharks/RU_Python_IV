@@ -22,3 +22,20 @@ LAB_ARGS Learning Objective: Learn to modify, receive, and work with arguments t
     argument doesn't validate raise a ValueError.
 
 """
+
+print("a.")
+
+def print_args(*args, **kwargs):
+    print(args, kwargs)
+
+print_args('a', {'b': 1}, ('c', 0))
+
+print("b.")
+
+def print_args_b(*args):
+    kwargs = {}
+    for i in args:
+        kwargs[]
+    print_args(kwargs)
+
+print_args()

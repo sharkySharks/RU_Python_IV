@@ -21,4 +21,9 @@ yield statements
 with statements
 
 
+Q: how does inheritance work in Python?
+Q: how to debug effectively in Python, are there break points?
+Q: server side code, what is best practice for file structure?
+    - how are css, html, etc handled?
+
 """

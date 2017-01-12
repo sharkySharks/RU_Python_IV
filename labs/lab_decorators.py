@@ -17,7 +17,18 @@ stop_time = time.time()
 elapsed = stop_time - start_time
 """
 
+import time
 
+def timer(func):
+    def inner(*args, **kwargs):
+        start = time.time()
+        value = func(*args, **kwargs)
+        stop = time.time()
+        print('Time elapsed: {} milliseconds'.format(stop - start))
+        return value
+    return inner
+
+@timer
 def time_me(item):
     """time this function for various calls"""
     def is_prime(num):

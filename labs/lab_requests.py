@@ -22,7 +22,7 @@ LAB_REQUESTS Learning Objective: Learn to interact with RESTful APIs using reque
     Your post JSON should be only one element: {'token': <your_token> }
 
  c. Continue the pattern from step b until you get a JSON response that contains the element
-    called `answer`.  Print out the final object you recieved from the server.
+    called `answer`.  Print out the final object you received from the server.
 
  Note: the token has a short timeout, so you will have to pull all the steps in a loop,
        otherwise the token will invalidate due to timeout
@@ -38,9 +38,24 @@ import requests  # noqa
 #     stop the loop when the JSON object has the key: "answer"
 # Print the final JSON response
 
+def get_answer(res):
+    res.pop('token') # remove token key to get next url
+    next_url = res.popitem()[1]
+    next_res = requests.post(next_url, json={'token': token})
+    next_res = next_res.json()
+    if 'answer' in next_res:
+        return print(next_res)
+    else:
+        get_answer(next_res)
+
+response = requests.get("http://104.239.140.190")
+response = response.json()
+token = response['token']
+get_answer(response)
+
+
 # Note: if you need to debug your HTTP connection info, call the following
 # function before you do any http calls with requests:
-
 
 def debug_mode():
     import logging

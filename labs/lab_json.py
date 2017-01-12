@@ -27,6 +27,11 @@ LAB_JSON Learning Objective: Learn to navigate a JSON file and convert to a
 import urllib.request
 import urllib.error
 import urllib.parse
+import json
+import ssl
 
-data = urllib.request.urlopen("https://api.github.com/")
-print(("{}".format(data.read())))
+context = ssl._create_unverified_context() # see if this can be removed by fixing the SSL error
+data = urllib.request.urlopen("https://api.github.com/", context=context)
+initial_page = json.loads(data.read().decode())
+
+
